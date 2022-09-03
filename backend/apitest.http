@@ -1,0 +1,111 @@
+
+
+post http://localhost:4000/auth/register HTTP/1.1
+Content-Type: application/json
+
+{
+   "username": "chandan@gmail",
+   "lastname": "rk",
+   "firstname": "kumar",
+   "password": "12345"
+}
+### login
+
+post http://localhost:4000/auth/login HTTP/1.1
+Content-Type: application/json
+
+{
+   "username": "kumar@gmail",
+   "password": "12345"
+}
+
+### update user
+
+PUT  http://localhost:4000/user/63013bb389a3f54ebf905532 HTTP/1.1
+Content-Type: application/json
+
+{
+   "currentUserId": "63013bb389a3f54ebf905532",
+   "username": "chandan@gmail",
+   "lastname": "rk",
+   "firstname": "kumar",
+   "isAdminStatus": false,
+   "password": "56789"
+}
+
+###delete user
+
+DELETE http://localhost:4000/user/63013bb389a3f54ebf905532 HTTP/1.1
+Content-Type: application/json
+
+{
+   "currentUserId": "63013bb389a3f54ebf905532"
+}
+
+
+### follow
+PUT http://localhost:4000/user/63028bc7fa1ce38cc993059e/follow HTTP/1.1
+Content-Type: application/json
+
+{
+   "currentUserId": "63028c85fa1ce38cc99305a1"
+}
+
+
+###unfollow user
+
+PUT http://localhost:4000/user/63028bc7fa1ce38cc993059e/unfollow HTTP/1.1
+Content-Type: application/json
+
+{
+   "currentUserId": "63028c85fa1ce38cc99305a1"
+}
+
+### post create
+
+POST http://localhost:4000/post/ HTTP/1.1
+Content-Type: application/json
+
+{
+   "userId": "63028c85fa1ce38cc99305a1",
+   "desc": "hello i am kumar",
+   "image": "not found"
+}
+
+### get post
+
+GET http://localhost:4000/post/63052b07a7d40e5f8a2b65a6 HTTP/1.1
+
+
+### update post
+
+PUT http://localhost:4000/post/63052b07a7d40e5f8a2b65a6 HTTP/1.1
+Content-Type: application/json
+
+{
+   "userId": "63028bc7fa1ce38cc993059e",
+   "desc": "hello i am chandan this is updated",
+   "image": "found"
+}
+
+
+### delete post
+
+DELETE http://localhost:4000/post/63052b07a7d40e5f8a2b65a6 HTTP/1.1
+Content-Type: application/json
+
+{
+   "userId": "63028bc7fa1ce38cc993059e"
+}
+
+### like post
+
+PUT http://localhost:4000/post/63052ab9a7d40e5f8a2b65a4/like HTTP/1.1
+Content-Type: application/json
+
+{
+   "userId": "63028c85fa1ce38cc99305a1"
+}
+
+### get timeline
+GET  http://localhost:4000/post/63028c85fa1ce38cc99305a1/timeline HTTP/1.1
